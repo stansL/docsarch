@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Home Page"></h:outputText>
+	</ui:define>
+	<ui:define name="body">
+
+		<div class="container">
+			<!-- Main component for a primary marketing message or call to action -->
+			<div class="jumbotron">
+
+				<p></p>
+				<div class="row">
+					<div class="col-xs-6 col-md-3">
+						<p:panel>Announcemnts</p:panel>
+					</div>
+
+					<div class="col-xs-6 col-md-9">
+						<p:panel>Home</p:panel>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-3">
+						<p:accordionPanel>
+							<p:tab title="Announcements">
+
+							</p:tab>
+							<p:tab title="Upcoming Events">
+
+							</p:tab>
+							<p:tab title="Past Events">
+
+							</p:tab>
+							<p:tab title="Archives">
+
+							</p:tab>
+
+						</p:accordionPanel>
+					</div>
+					<!-- /.col-lg-6 -->
+					<div class="col-lg-9" style="min-height: 300px;">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="input-group">
+									<p:panel header="Manage Schedules">
+									The system helps with managing the organizational schedules for a company. 
+									Once the dates of interest have been fed into the database, the system automatically highlights the respective dates  within the display calendar
+									</p:panel>
+								</div>
+								<!-- /input-group -->
+							</div>
+							<!-- /.col-lg-6 -->
+							<div class="col-lg-6">
+								<div class="input-group">
+									<p:panel header="Enter Bio Data Online">
+									Allow for the online registeration of bio data details. These are then stored into the database for future reference.
+									
+									</p:panel>
+								</div>
+								<!-- /input-group -->
+							</div>
+
+
+							<!-- /.col-lg-6 -->
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="input-group">
+									<p:panel header="Manage Contacts">
+									Allow for the online display of the registered contacts
+									
+									</p:panel>
+								</div>
+								<!-- /input-group -->
+							</div>
+							<!-- /.col-lg-6 -->
+							<div class="col-lg-6">
+								<div class="input-group">
+									<p:panel header="Manage Messages">
+									Track all the messages sent through the system with given access levels									
+									</p:panel>
+								</div>
+								<!-- /input-group -->
+							</div>
+							<!-- /.col-lg-6 -->
+						</div>
+						<!-- /.row -->
+
+					</div>
+					<!-- /.col-lg-6 -->
+				</div>
+			</div>
+		</div>
+		<!-- /container -->
+	</ui:define>
+
+</ui:composition>
+</html>

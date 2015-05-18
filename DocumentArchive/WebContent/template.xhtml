@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputScript library="js" name="ie-emulation-modes-warning.js" />
+	<h:outputScript library="js" name="ie10-viewport-bug-workaround.js" />
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="navbar-fixed-top.css" />
+	<h:outputStylesheet library="css" name="tabthing.css" />
+
+	<title><ui:insert name="title">Default Title</ui:insert></title>
+
+</h:head>
+
+<h:body>
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Naeima Project Management</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#{request.contextPath}/">Home</a></li>
+					<li><a href="#{request.contextPath}/pages/public/about.xhtml">About</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">Activities
+							<span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a
+								href="#{request.contextPath}/pages/public/schedule.xhtml">Production
+									Schedule</a></li>
+							<li><a
+								href="#{request.contextPath}/pages/secure/biodata.xhtml">Bio
+									Submission</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Contact Listing</li>
+							<li><a href="#{request.contextPath}/pages/secure/list.xhtml">Contact
+									List</a></li>
+
+						</ul></li>
+					<li><a href="#{request.contextPath}/pages/contact.xhtml">Contact
+							Us</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">Downloads
+							<span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a
+								href="#{request.contextPath}/pages/public/downloads.xhtml">Public
+									Downloads</a></li>
+							<sec:authorize access="isAuthenticated()">
+								<li><a
+									href="#{request.contextPath}/pages/secure/protected_downloads.xhtml">Protected
+										Downloads</a></li>
+							</sec:authorize>
+
+						</ul></li>
+
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<sec:authorize access="isAuthenticated()">
+						<li><a href="#">Inbox <span class="badge">0</span></a></li>
+					</sec:authorize>
+
+
+					<sec:authorize access="isAuthenticated()">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false">
+								Logged In As '#{request.remoteUser}' <span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Settings</a></li>
+								<li><a href="#">Post an Announcement</a></li>
+								<li><a href="#">Change Password</a></li>
+								<li><a href="#">Help</a></li>
+								<sec:authorize access="hasRole('ROLE_ADMIN')">
+									<li><a
+										href="#{request.contextPath}/pages/secure/users/create.xhtml">Add
+											Users</a></li>
+								</sec:authorize>
+
+								<li class="divider"></li>
+								<li><a
+									href="#{request.contextPath}/j_spring_security_logout">Log
+										Out</a></li>
+							</ul></li>
+					</sec:authorize>
+					<sec:authorize access="!isAuthenticated()">
+						<li><a href="#{request.contextPath}/login.xhtml">Log In</a></li>
+					</sec:authorize>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<ui:insert name="body">Default Body</ui:insert>
+
+
+
+</h:body>
+</html>

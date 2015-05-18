@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<import resource="applicationContext.xml" />
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="SELECT `username` , `password` , `enabled` , `accountNonExpired` , `credentialsNonExpired` , `accountNonLocked` FROM `hims`.`user` WHERE (binary `username` = ? )"
+				authorities-by-username-query="SELECT `user`.`username` , `authorities`.`authority` FROM `hims`.`user` INNER JOIN `hims`.`authorities` ON (`user`.`authorities_id` = `authorities`.`id`) WHERE (binary `user`.`username` = ? )" />
+			<security:password-encoder ref="passwordEncoder"></security:password-encoder>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/javax.faces.resource/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/pages/contact.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/pages/secure/biodata.xhtml"
+			access="isAuthenticated()" />
+			<security:intercept-url pattern="/pages/secure/protected_downloads.xhtml"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/pages/secure/list.xhtml"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/pages/secure/settings/**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/static/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/pages/contact.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/fonts/**"
+			access="permitAll" />
+
+		<security:intercept-url pattern="/template.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/resources/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/login.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/index.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/pages/public/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/pages/secure/patients/create.xhtml"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/pages/secure/patients/list.xhtml"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/pages/secure/users/create.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/**" access="denyAll" />
+		<security:form-login login-page="/login.xhtml"
+			authentication-failure-url="/login.xhtml?error=true" />
+
+		<security:logout invalidate-session="true"
+			delete-cookies="true" logout-success-url="/index.xhtml" />
+		<security:access-denied-handler
+			error-page="/pages/public/error.xhtml?faces-redirect=true" />
+	</security:http>
+
+	<security:global-method-security
+		secured-annotations="enabled"></security:global-method-security>
+
+</beans>

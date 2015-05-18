@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Home Page"></h:outputText>
+	</ui:define>
+	<ui:define name="body">
+
+		<div class="container">
+			<!-- Main component for a primary marketing message or call to action -->
+			<div class="jumbotron">
+	
+				<p></p>
+				<div class="row">
+					<div class="col-xs-6 col-md-3">
+						<p:panel>Call Board</p:panel>
+					</div>
+					
+					<div class="col-xs-6 col-md-9">
+						<p:panel>About Us</p:panel>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-3">
+						<p:accordionPanel>
+							<p:tab title="Announcements">
+
+							</p:tab>
+							<p:tab title="Upcoming Events">
+
+							</p:tab>
+							<p:tab title="Past Events">
+
+							</p:tab>
+							<p:tab title="Archives">
+
+							</p:tab>
+
+						</p:accordionPanel>
+					</div>
+					<!-- /.col-lg-6 -->
+					<div class="col-lg-9" style="min-height: 300px;">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="input-group">
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+								</div>
+								<!-- /input-group -->
+							</div>
+							
+							<!-- /.col-lg-6 -->
+						</div>
+						
+						
+						<!-- /.row -->
+
+					</div>
+					<!-- /.col-lg-6 -->
+				</div>
+			</div>
+		</div>
+		<!-- /container -->
+
+
+
+	</ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 23, 2015 5:02:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ke.co.greid.models2.Student" table="student" catalog="hims">
+        <id name="idstudent" type="java.lang.Integer">
+            <column name="idstudent" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="45" />
+        </property>
+        <property name="middleName" type="string">
+            <column name="middle_name" length="45" />
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="age" />
+        </property>
+        <set name="courses" table="student_has_course" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="student_idstudent" not-null="true" />
+            </key>
+            <many-to-many entity-name="ke.co.greid.models2.Course">
+                <column name="course_idcourse" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 23, 2015 5:02:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ke.co.greid.models2.Block" table="block" catalog="hims">
+        <id name="blockCode" type="string">
+            <column name="block_code" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="blockTitle" type="string">
+            <column name="block_title" length="210" />
+        </property>
+    </class>
+</hibernate-mapping>

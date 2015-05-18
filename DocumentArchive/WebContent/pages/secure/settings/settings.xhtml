@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sec="http://www.springframework.org/security/tags">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<sec:authorize access="isAuthenticated()">
+		<h:outputLink value="#{request.contextPath}/j_spring_security_logout">Logout</h:outputLink>
+	</sec:authorize>
+
+	<p:outputLabel>&#160;</p:outputLabel>
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
+		<h:outputLink
+			value="#{request.contextPath}/pages/secure/settings/settings.xhtml">Settings</h:outputLink>
+
+	</sec:authorize>
+
+	<h:form id="loginForm">
+
+		<p:panel header="Primefaces Kick Start">
+			<h:outputLabel
+				value="This This Page can only be viewed by the admins and the doctors" />
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>

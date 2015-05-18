@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 23, 2015 5:02:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ke.co.greid.models2.TbDataIcd" table="tb_data_icd" catalog="hims">
+        <composite-id name="id" class="ke.co.greid.models2.TbDataIcdId">
+            <key-property name="col1" type="java.lang.Integer">
+                <column name="col1" />
+            </key-property>
+            <key-property name="col2" type="string">
+                <column name="col2" length="1" />
+            </key-property>
+            <key-property name="col3" type="string">
+                <column name="col3" length="1" />
+            </key-property>
+            <key-property name="col4" type="java.lang.Integer">
+                <column name="col4" />
+            </key-property>
+            <key-property name="col5" type="string">
+                <column name="col5" length="3" />
+            </key-property>
+            <key-property name="col6" type="string">
+                <column name="col6" length="6" />
+            </key-property>
+            <key-property name="col7" type="string">
+                <column name="col7" length="5" />
+            </key-property>
+            <key-property name="col8" type="string">
+                <column name="col8" length="4" />
+            </key-property>
+            <key-property name="col9" type="string">
+                <column name="col9" length="185" />
+            </key-property>
+            <key-property name="col10" type="string">
+                <column name="col10" length="5" />
+            </key-property>
+            <key-property name="col11" type="string">
+                <column name="col11" length="5" />
+            </key-property>
+            <key-property name="col12" type="string">
+                <column name="col12" length="5" />
+            </key-property>
+            <key-property name="col13" type="string">
+                <column name="col13" length="5" />
+            </key-property>
+            <key-property name="col14" type="string">
+                <column name="col14" length="5" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,129 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Home Page"></h:outputText>
+	</ui:define>
+	<ui:define name="body">
+
+		<div class="container">
+			<!-- Main component for a primary marketing message or call to action -->
+			<div class="jumbotron">
+
+				<p></p>
+				<div class="row">
+					<div class="col-xs-6 col-md-3">
+						<p:panel>Call Board</p:panel>
+					</div>
+
+					<div class="col-xs-6 col-md-9">
+						<p:panel>Content</p:panel>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-3">
+						<p:accordionPanel>
+							<p:tab title="Announcements">
+
+							</p:tab>
+							<p:tab title="Upcoming Events">
+
+							</p:tab>
+							<p:tab title="Past Events">
+
+							</p:tab>
+							<p:tab title="Archives">
+
+							</p:tab>
+
+						</p:accordionPanel>
+					</div>
+					<!-- /.col-lg-6 -->
+					<div class="col-lg-9" style="min-height: 300px;">
+
+						<div class="row">
+
+							<!-- /.col-lg-6 -->
+							<div class="col-lg-12">
+								<p></p>
+								<div class="input-group">
+									<h:form>
+										<p:growl id="growl" sticky="false" showDetail="true" />
+										<h:panelGrid columns="2">
+
+											<p:outputLabel value="First Name: " for="firstName" />
+											<p:inputText id="firstName"
+												value="#{userController.current.firstName}"
+												title="First Name:" required="true"
+												requiredMessage="Enter First Name" />
+											<p:outputLabel value="Last Name :" for="lastName" />
+											<p:inputText id="lastName"
+												value="#{userController.current.lastName}"
+												title="Last Name :" required="true"
+												requiredMessage="Enter Last Name" />
+											<p:outputLabel value="Username : " for="username" />
+											<p:inputText id="username"
+												value="#{userController.current.username}" title="Username"
+												required="true" requiredMessage="Enter Username" />
+											<p:outputLabel value="Password" for="password" />
+											<p:password id="password"
+												value="#{userController.current.password}" title="Password"
+												required="true" requiredMessage="Password Required!"
+												match="confirmpassword"
+												validatorMessage="Passwords Must Match!!" feedback="true" />
+
+											<p:outputLabel value="Password" for="confirmpassword" />
+											<p:password id="confirmpassword"
+												value="#{userController.current.password}" title="Password"
+												required="true"
+												requiredMessage="Enter Password Confirmation" />
+
+											<p:outputLabel value="Enabled" for="enabled" />
+											<p:selectBooleanCheckbox id="enabled"
+												value="#{userController.current.enabled}" title="Enabled" />
+											
+
+											<p:outputLabel value="Authority : " for="authority" />
+											<p:selectOneRadio id="authority" value="">
+												<f:selectItem itemLabel="Admin" itemValue="admin" />
+												<f:selectItem itemLabel="User" itemValue="user" />
+											</p:selectOneRadio>
+
+										</h:panelGrid>
+										<br />
+										<h:commandLink action="#{userController.create}"
+											value="Create User" />
+									
+										<h:link outcome="/index" value="Home" />
+									</h:form>
+
+
+
+
+								</div>
+								<!-- /input-group -->
+							</div>
+							<!-- /.col-lg-6 -->
+						</div>
+						<!-- /.row -->
+
+					</div>
+					<!-- /.col-lg-6 -->
+				</div>
+			</div>
+		</div>
+		<!-- /container -->
+
+
+
+	</ui:define>
+
+</ui:composition>
+</html>
